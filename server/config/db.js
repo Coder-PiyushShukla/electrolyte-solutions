@@ -9,8 +9,8 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   ssl: { rejectUnauthorized: false }, // Required for Supabase
   max: 20,                           // Max pool size
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 10000,
+  idleTimeoutMillis: 60000,
+  connectionTimeoutMillis: 30000,
 });
 
 // Test connection on startup

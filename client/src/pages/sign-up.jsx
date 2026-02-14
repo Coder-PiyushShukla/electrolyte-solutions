@@ -13,55 +13,55 @@ const Signup = () => {
 
   // Calculate Password Strength
   const strength = Math.min(
-    (password.length > 6 ? 1 : 0) + 
-    (/[A-Z]/.test(password) ? 1 : 0) + 
-    (/[0-9]/.test(password) ? 1 : 0) + 
-    (/[^A-Za-z0-9]/.test(password) ? 1 : 0), 
+    (password.length > 6 ? 1 : 0) +
+    (/[A-Z]/.test(password) ? 1 : 0) +
+    (/[0-9]/.test(password) ? 1 : 0) +
+    (/[^A-Za-z0-9]/.test(password) ? 1 : 0),
     4
   );
 
   const onSubmit = async (data) => {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    navigate('/login');
+    navigate('/dashboard');
   };
 
   return (
     <AuthLayout title="Join the Network" subtitle="Create your identity to access secured protocols.">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
-        <InputGroup 
-          label="Full Name" 
-          name="name" 
-          type="text" 
-          icon={User} 
+        <InputGroup
+          label="Full Name"
+          name="name"
+          type="text"
+          icon={User}
           register={register}
         />
-        
-        <InputGroup 
-          label="Email Address" 
-          name="email" 
-          type="email" 
-          icon={Mail} 
+
+        <InputGroup
+          label="Email Address"
+          name="email"
+          type="email"
+          icon={Mail}
           register={register}
         />
-        
-        <InputGroup 
-          label="Password" 
-          name="password" 
-          type="password" 
-          icon={Lock} 
+
+        <InputGroup
+          label="Password"
+          name="password"
+          type="password"
+          icon={Lock}
           register={register}
         />
 
         {/* Password Strength Meter */}
         <div className="flex gap-2 mb-6 h-1">
           {[...Array(4)].map((_, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ backgroundColor: "#1f2937" }}
-              animate={{ 
-                backgroundColor: i < strength 
-                  ? (strength < 2 ? "#ff003c" : strength < 3 ? "#facc15" : "#00f0ff") 
-                  : "#1f2937" 
+              animate={{
+                backgroundColor: i < strength
+                  ? (strength < 2 ? "#ff003c" : strength < 3 ? "#facc15" : "#00f0ff")
+                  : "#1f2937"
               }}
               className="h-full flex-1 rounded-full transition-colors duration-300"
             />
@@ -76,7 +76,7 @@ const Signup = () => {
           className="w-full bg-cyber-primary text-cyber-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all relative overflow-hidden group"
         >
           {isSubmitting ? (
-             <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
           ) : (
             <>
               <span className="font-mono tracking-wider z-10">REGISTER ID</span>
@@ -88,7 +88,7 @@ const Signup = () => {
 
         <div className="mt-8 text-center text-xs font-mono text-gray-500">
           ALREADY AUTHENTICATED? {' '}
-          <Link to="/login" className="text-cyber-primary hover:underline underline-offset-4">
+          <Link to="/sign-in" className="text-cyber-primary hover:underline underline-offset-4">
             ACCESS TERMINAL
           </Link>
         </div>

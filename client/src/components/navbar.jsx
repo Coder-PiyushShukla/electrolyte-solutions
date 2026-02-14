@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  LayoutDashboard, 
-  Box, 
-  Activity, 
-  Settings, 
-  LogOut, 
-  Menu, 
-  X, 
+import {
+  LayoutDashboard,
+  Box,
+  Activity,
+  Settings,
+  LogOut,
+  Menu,
+  X,
   Zap,
   ShieldCheck
 } from 'lucide-react';
@@ -23,7 +23,7 @@ const NavItem = ({ to, icon: Icon, label }) => {
         <>
           {/* Hover Glow Effect */}
           <div className="absolute inset-0 bg-cyber-primary/0 group-hover:bg-cyber-primary/5 rounded-lg transition-colors duration-300" />
-          
+
           {/* Active State: The "Magnetic Pill" */}
           {isActive && (
             <motion.div
@@ -40,7 +40,7 @@ const NavItem = ({ to, icon: Icon, label }) => {
 
           {/* Bottom Active Line (Optional aesthetic detail) */}
           {isActive && (
-            <motion.div 
+            <motion.div
               layoutId="nav-line"
               className="absolute bottom-0 left-2 right-2 h-[2px] bg-cyber-primary shadow-[0_0_10px_#facc15]"
             />
@@ -64,7 +64,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 px-4 py-3">
       {/* The Glass Container */}
       <div className="bg-cyber-black/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex items-center justify-between px-6 py-3 relative overflow-hidden">
-        
+
         {/* Animated Background Mesh */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -91,7 +91,7 @@ const Navbar = () => {
 
         {/* DESKTOP NAVIGATION (Center) */}
         <div className="hidden md:flex items-center gap-2 bg-black/20 p-1 rounded-xl border border-white/5">
-          <NavItem to="/" icon={LayoutDashboard} label="Overview" />
+          <NavItem to="/dashboard" icon={LayoutDashboard} label="Overview" />
           <NavItem to="/inventory" icon={Box} label="Inventory" />
           <NavItem to="/production" icon={Activity} label="Production" />
           <NavItem to="/settings" icon={Settings} label="System" />
@@ -106,7 +106,7 @@ const Navbar = () => {
             </span>
           </div>
           <div className="h-8 w-[1px] bg-white/10" />
-          <button 
+          <button
             onClick={handleLogout}
             className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all group relative"
             title="Disconnect"
@@ -119,7 +119,7 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE MENU TOGGLE */}
-        <button 
+        <button
           className="md:hidden text-white p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -136,12 +136,12 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             className="absolute top-20 left-4 right-4 bg-cyber-gray/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 z-40 flex flex-col gap-2 md:hidden shadow-2xl"
           >
-            <NavItem to="/" icon={LayoutDashboard} label="Overview" />
+            <NavItem to="/dashboard" icon={LayoutDashboard} label="Overview" />
             <NavItem to="/inventory" icon={Box} label="Inventory" />
             <NavItem to="/production" icon={Activity} label="Production" />
             <NavItem to="/settings" icon={Settings} label="System" />
             <div className="h-[1px] bg-white/10 my-2" />
-            <button 
+            <button
               onClick={handleLogout}
               className="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all font-mono text-xs font-bold"
             >

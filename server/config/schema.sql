@@ -80,6 +80,16 @@ CREATE TABLE IF NOT EXISTS settings (
   value TEXT NOT NULL
 );
 
+-- 9. User Feedback
+CREATE TABLE IF NOT EXISTS feedback (
+  id         SERIAL PRIMARY KEY,
+  user_id    INTEGER REFERENCES users(id),
+  rating     INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  category   VARCHAR(50) DEFAULT 'other',
+  message    TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Default settings
 INSERT INTO settings (key, value)
 VALUES ('low_stock_threshold', '20')

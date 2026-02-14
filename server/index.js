@@ -11,6 +11,7 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const alertRoutes = require('./routes/alertRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
 const historyRoutes = require('./routes/historyRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,6 +33,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/alerts', alertRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/history', historyRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 // ─── Health Check ──────────────────────────────────────────────
 app.get('/api/health', (req, res) => {

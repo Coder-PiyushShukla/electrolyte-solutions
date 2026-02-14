@@ -13,26 +13,26 @@ const Login = () => {
   const onSubmit = async (data) => {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 2000));
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (
     <AuthLayout title="Welcome Back" subtitle="Enter your credentials to access the grid.">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
-        <InputGroup 
-          label="Email Address" 
-          name="email" 
-          type="email" 
-          icon={Mail} 
+        <InputGroup
+          label="Email Address"
+          name="email"
+          type="email"
+          icon={Mail}
           register={register}
           error={errors.email}
         />
-        
-        <InputGroup 
-          label="Password" 
-          name="password" 
-          type="password" 
-          icon={Lock} 
+
+        <InputGroup
+          label="Password"
+          name="password"
+          type="password"
+          icon={Lock}
           register={register}
           error={errors.password}
         />
@@ -71,7 +71,7 @@ const Login = () => {
             <span className="bg-cyber-gray/40 px-2 z-10">OR CONTINUE WITH</span>
             <div className="absolute inset-x-0 top-1/2 h-px bg-white/10 -z-0" />
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
             <button type="button" className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all text-sm font-mono text-gray-300">
               <Github size={18} /> GITHUB
